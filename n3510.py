@@ -46,7 +46,7 @@ class Solution:
         for i in range(heap_size // 2, -1, -1):
             self.siftDown(ll, i, heap_size)
 
-        while (disorder_cnt != 0) and (heap_size != 0):
+        while disorder_cnt != 0:
             node = ll[0]
             discarded = node["next"]
             d_next = discarded["next"]
@@ -70,7 +70,6 @@ class Solution:
                 disorder_cnt -= 1 if prev["disorder"] else 0
                 prev["disorder"] = prev["num"] > node["num"]
                 disorder_cnt += 1 if prev["disorder"] else 0
-                print(disorder_cnt)
 
             disorder_cnt -= 1 if discarded["disorder"] else 0
             disorder_cnt -= 1 if node["disorder"] else 0
