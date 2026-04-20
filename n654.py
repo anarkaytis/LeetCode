@@ -9,7 +9,7 @@ class Solution:
         n = len(nums)
         if n == 0:
             return None
-        val, idx = max((val, idx) for idx, val in enumerate(nums))
+        idx, val = max(enumerate(nums), key=lambda x: x[1])
         node = TreeNode(val)
         node.left = self.constructMaximumBinaryTree(nums[: idx])
         node.right = self.constructMaximumBinaryTree(nums[idx + 1 :])
