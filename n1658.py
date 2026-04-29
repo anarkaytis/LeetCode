@@ -6,6 +6,8 @@ class Solution:
         prefix = 0
         for i in range(n):
             prefix += nums[i]
+            if prefix > x:
+                break
             ps[prefix] = i + 1
         suffix = 0
         result = n + 1
@@ -13,6 +15,8 @@ class Solution:
             result = ps[x]
         for i in range(n - 1, -1, -1):
             suffix += nums[i]
+            if suffix > x:
+                break
             diff = x - suffix
             if diff in ps:
                 result = min(result, ps[diff] + n - i)
